@@ -15,24 +15,12 @@
             color: #f0f0f0;
         }
 
-        /* Стиль заголовка с фоновым изображением */
+        /* Стиль заголовка */
         header {
-            background: url('masks.jfif') no-repeat center center;
-            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.7); /* Прозрачный черный фон */
             color: #d4af37; /* Золотой цвет для театрального ощущения */
-            padding: 60px 0; /* Увеличение отступов для лучшего отображения фона */
+            padding: 30px 0;
             text-align: center;
-            position: relative;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6); /* Прозрачный тёмный слой для улучшения читаемости текста */
-            z-index: 1;
         }
         header h1 {
             margin: 0;
@@ -40,8 +28,6 @@
             font-weight: bold;
             letter-spacing: 3px;
             text-transform: uppercase;
-            position: relative;
-            z-index: 2; /* Текст отображается поверх затемняющего слоя */
         }
 
         /* Секция с текстом */
@@ -125,6 +111,37 @@
             color: #888;
         }
 
+        /* Анимация для штор */
+        #curtains {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+        }
+        .curtain {
+            width: 50%;
+            height: 100%;
+            background-color: #8B0000; /* Цвет штор (темно-красный) */
+            position: relative;
+            transition: transform 1s ease-in-out;
+        }
+        .curtain-left {
+            transform: translateX(0); /* Начальная позиция — закрытые */
+        }
+        .curtain-right {
+            transform: translateX(0); /* Начальная позиция — закрытые */
+        }
+        .curtains-open .curtain-left {
+            transform: translateX(-100%); /* Штора уходит влево */
+        }
+        .curtains-open .curtain-right {
+            transform: translateX(100%); /* Штора уходит вправо */
+        }
+
         /* Дополнительные декоративные элементы */
         section:before {
             content: '🎭';
@@ -146,6 +163,12 @@
     </style>
 </head>
 <body>
+
+<!-- Шторы -->
+<div id="curtains">
+    <div class="curtain curtain-left"></div>
+    <div class="curtain curtain-right"></div>
+</div>
 
 <header>
     <h1>Семинар "Чужие маски"</h1>
@@ -180,6 +203,19 @@
 <footer>
     &copy; 2024 OSU. Все права защищены.
 </footer>
+
+<script>
+    window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY;
+        var windowHeight = window.innerHeight;
+        var curtainElement = document.getElementById('curtains');
+
+        // Условие для открытия штор при прокрутке вниз
+        if (scrollPosition > windowHeight * 0.1) { // Прокрутка больше 10% высоты окна
+            curtainElement.classList.add('curtains-open');
+        }
+    });
+</script>
 
 </body>
 </html>
