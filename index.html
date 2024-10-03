@@ -10,17 +10,29 @@
             font-family: 'Georgia', serif;
             margin: 0;
             padding: 0;
-            background: url('teatr.jpg') no-repeat center center fixed;
+            background: url('/mnt/data/teatr.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #f0f0f0;
         }
 
-        /* Стиль заголовка */
+        /* Стиль заголовка с фоновым изображением */
         header {
-            background-color: rgba(0, 0, 0, 0.7); /* Прозрачный черный фон */
+            background: url('/mnt/data/teatr.jpg') no-repeat center center;
+            background-size: cover;
             color: #d4af37; /* Золотой цвет для театрального ощущения */
-            padding: 30px 0;
+            padding: 60px 0; /* Увеличение отступов для лучшего отображения фона */
             text-align: center;
+            position: relative;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6); /* Прозрачный тёмный слой для улучшения читаемости текста */
+            z-index: 1;
         }
         header h1 {
             margin: 0;
@@ -28,6 +40,8 @@
             font-weight: bold;
             letter-spacing: 3px;
             text-transform: uppercase;
+            position: relative;
+            z-index: 2; /* Текст отображается поверх затемняющего слоя */
         }
 
         /* Секция с текстом */
