@@ -10,7 +10,7 @@
             font-family: 'Georgia', serif;
             margin: 0;
             padding: 0;
-            background: url('teatr.jpg') no-repeat center center fixed;
+            background: url('/mnt/data/teatr.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #f0f0f0;
         }
@@ -111,7 +111,7 @@
             color: #888;
         }
 
-        /* Анимация для штор */
+        /* Анимация для штор с картинками */
         #curtains {
             position: fixed;
             top: 0;
@@ -125,14 +125,16 @@
         .curtain {
             width: 50%;
             height: 100%;
-            background-color: #8B0000; /* Цвет штор (темно-красный) */
             position: relative;
+            background-size: cover;
             transition: transform 1s ease-in-out;
         }
         .curtain-left {
+            background: url('left.png') no-repeat left center;
             transform: translateX(0); /* Начальная позиция — закрытые */
         }
         .curtain-right {
+            background: url('right.png') no-repeat right center;
             transform: translateX(0); /* Начальная позиция — закрытые */
         }
         .curtains-open .curtain-left {
