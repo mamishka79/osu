@@ -1,163 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day Planner Bot</title>
+    <title>Семинар «Чужие маски»</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            background-color: #f7f9fc;
+            background: linear-gradient(120deg, #f8f9fc 50%, #b0e0e6 100%);
             color: #333;
             text-align: center;
+            background-image: url('surreal-background.png'); /* Abstract, dreamlike background */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
+
         header {
             background-color: #4CAF50;
             color: #fff;
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: skewY(-3deg);
+            position: relative;
         }
+
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0px #fff, -3px -3px 0px #4CAF50;
+            position: relative;
         }
+
         section {
-            padding: 2rem;
+            padding: 3rem;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            max-width: 90%;
+            margin: 2rem auto;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transform: perspective(600px) rotateX(5deg);
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
+            transform: skewX(2deg);
         }
+
         .description {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin: 1.5rem 0;
-            line-height: 1.6;
+            line-height: 1.8;
+            color: #444;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
+
         .features {
             margin: 2rem 0;
             text-align: left;
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            transform: scale(1.05);
+            backdrop-filter: blur(4px);
         }
+
         .features h3 {
-            font-size: 1.5rem;
-            color: #4CAF50;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #b0e0e6;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
+
         .features p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
+
         .features strong {
+            color: #ff6347;
+        }
+
+        .waitlist-container {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .waitlist-container h2 {
+            margin-bottom: 1.5rem;
+            color: #ff6347;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .waitlist-container p {
+            font-size: 1.1rem;
             color: #333;
         }
 
-        /* Horizontal Scrolling Gallery */
-        .gallery-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory; /* Enables snapping */
-            gap: 20px;
-            padding: 10px 0;
-            scroll-padding: 0 50%; /* Centering effect when scroll snaps */
-        }
-        .gallery-container img {
-            flex-shrink: 0;
-            width: 300px;
-            height: auto;
-            scroll-snap-align: center; /* Each image will snap to the center */
-            transition: transform 0.3s ease-in-out;
-        }
-        .gallery-container img:hover {
-            transform: scale(1.05); /* Image enlarges slightly when hovered */
+        .waitlist-container input[type="email"] {
+            padding: 1rem;
+            width: 85%;
+            font-size: 1.2rem;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.8);
         }
 
-        /* Waitlist and Plugin Block Layout */
-        .two-column-layout {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .plugin-block, .waitlist-container {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            flex: 1;
-        }
-        .plugin-block h2 {
-            margin-bottom: 1rem;
-            color: #4CAF50;
-        }
-        .plugin-block p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-        .plugin-block a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .plugin-block svg {
-            vertical-align: middle;
-            margin-right: 10px;
-            width: 30px;
-            height: 30px;
-        }
-        .waitlist-container h2 {
-            margin-bottom: 1rem;
-            color: #4CAF50;
-        }
-        .waitlist-container input[type="email"] {
-            padding: 0.8rem;
-            width: 80%;
-            font-size: 1rem;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            box-sizing: border-box;
-        }
         .waitlist-container button {
-            padding: 0.8rem 2rem;
-            background-color: #4CAF50;
+            padding: 1rem 2.5rem;
+            background-color: #ff6347;
             color: #fff;
             border: none;
-            font-size: 1rem;
-            border-radius: 8px;
+            font-size: 1.2rem;
+            border-radius: 15px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.4s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
+
         .waitlist-container button:hover {
-            background-color: #45a049;
+            background-color: #ff4500;
         }
 
         footer {
-            background-color: #4CAF50;
+            background-color: rgba(0, 128, 128, 0.8);
             color: #fff;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
         }
 
-        /* Responsive */
+        footer p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
         @media screen and (max-width: 768px) {
-            .gallery-container img {
-                width: 200px; /* Smaller images on mobile */
-            }
-            .two-column-layout {
-                flex-direction: column; /* Stack on mobile */
-                align-items: center;
+            .waitlist-container {
+                max-width: 90%;
             }
         }
     </style>
@@ -165,52 +164,37 @@
 <body>
 
     <header>
-        <h1>Day Planner Bot</h1>
+        <h1>Семинар «Чужие маски»</h1>
     </header>
 
     <section class="container">
-        <div class="gallery-container">
-            <!-- Images in the gallery that will snap to the center -->
-            <img src="Plan (5).png" alt="Screenshot 1">
-            <img src="Fast (4).png" alt="Screenshot 2">
-            <img src="Data (3).png" alt="Screenshot 3">
-            <img src="Auto (3).png" alt="Screenshot 4">
-        </div>
-
-        <h2>About the Product</h2>
-        <p class="description">We are developing a Telegram bot that helps you effectively plan your day and analyze how you allocate your time.</p>
+        <h2>Здравствуйте, дорогие студенты!</h2>
+        <p class="description">
+            Команда «OSU» рада приветствовать вас. Скоро пройдет увлекательный семинар «Чужие маски», где мы будем примерять маски актеров и играть их роли, а также участвовать в интересных играх.
+            Приглашаем всех желающих! Пожалуйста, зарегистрируйтесь для участия в семинаре.
+        </p>
         
         <div class="features">
-            <h3>Main Features:</h3>
-            <p>🗣 <strong>Text and Voice Planning:</strong> Write your plans as text or send a voice message. The bot will automatically convert your voice to text and organize your plans into a convenient table or list.</p>
-            <p>📊 <strong>Time Analytics:</strong> Analyze your data — see how much time you spend on sleep, gaming, and other activities. Maybe it's time to take control of your time?</p>
-            <p>🤖 <strong>Automatic Planning:</strong> Based on your past data, the bot will create an automatic plan for your day, taking into account your habits and priorities.</p>
+            <h3>Маски в нашей жизни</h3>
+            <p>📅 <strong>Дата и время:</strong> 8 октября, 15:20</p>
+            <p>📍 <strong>Место:</strong> Tengri Hall</p>
+            <p>🎭 <strong>Описание:</strong> Уникальный мастер-класс, включающий психологический спектакль, создание персональной маски и обсуждение гармонии с социальными ролями.</p>
         </div>
 
-        <!-- Two-column layout for plugin link and waitlist form -->
-        <div class="two-column-layout">
-            <!-- Plugin block -->
-            <div class="plugin-block">
-                <h2><svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 512"><rect fill="#10A37F" width="512" height="512" rx="104.187" ry="105.042"/><path fill="#fff" fill-rule="nonzero" d="M378.68 230.011a71.432 71.432 0 003.654-22.541 71.383 71.383 0 00-9.783-36.064c-12.871-22.404-36.747-36.236-62.587-36.236a72.31 72.31 0 00-15.145 1.604 71.362 71.362 0 00-53.37-23.991h-.453l-.17.001c-31.297 0-59.052 20.195-68.673 49.967a71.372 71.372 0 00-47.709 34.618 72.224 72.224 0 00-9.755 36.226 72.204 72.204 0 0018.628 48.395 71.395 71.395 0 00-3.655 22.541 71.388 71.388 0 009.783 36.064 72.187 72.187 0 0077.728 34.631 71.375 71.375 0 0053.374 23.992H271l.184-.001c31.314 0 59.06-20.196 68.681-49.995a71.384 71.384 0 0047.71-34.619 72.107 72.107 0 009.736-36.194 72.201 72.201 0 00-18.628-48.394l-.003-.004zM271.018 380.492h-.074a53.576 53.576 0 01-34.287-12.423 44.928 44.928 0 001.694-.96l57.032-32.943a9.278 9.278 0 004.688-8.06v-80.459l24.106 13.919a.859.859 0 01.469.661v66.586c-.033 29.604-24.022 53.619-53.628 53.679zm-115.329-49.257a53.563 53.563 0 01-7.196-26.798c0-3.069.268-6.146.79-9.17.424.254 1.164.706 1.695 1.011l57.032 32.943a9.289 9.289 0 009.37-.002l69.63-40.205v27.839l.001.048a.864.864 0 01-.345.691l-57.654 33.288a53.791 53.791 0 01-26.817 7.17 53.746 53.746 0 01-46.506-26.818v.003zm-15.004-124.506a53.5 53.5 0 0127.941-23.534c0 .491-.028 1.361-.028 1.965v65.887l-.001.054a9.27 9.27 0 004.681 8.053l69.63 40.199-24.105 13.919a.864.864 0 01-.813.074l-57.66-33.316a53.746 53.746 0 01-26.805-46.5 53.787 53.787 0 017.163-26.798l-.003-.003zm198.055 46.089l-69.63-40.204 24.106-13.914a.863.863 0 01.813-.074l57.659 33.288a53.71 53.71 0 0126.835 46.491c0 22.489-14.033 42.612-35.133 50.379v-67.857c.003-.025.003-.051.003-.076a9.265 9.265 0 00-4.653-8.033zm23.993-36.111a81.919 81.919 0 00-1.694-1.01l-57.032-32.944a9.31 9.31 0 00-4.684-1.266 9.31 9.31 0 00-4.684 1.266l-69.631 40.205v-27.839l-.001-.048c0-.272.129-.528.346-.691l57.654-33.26a53.696 53.696 0 0126.816-7.177c29.644 0 53.684 24.04 53.684 53.684a53.91 53.91 0 01-.774 9.077v.003zm-150.831 49.618l-24.111-13.919a.859.859 0 01-.469-.661v-66.587c.013-29.628 24.053-53.648 53.684-53.648a53.719 53.719 0 0134.349 12.426c-.434.237-1.191.655-1.694.96l-57.032 32.943a9.272 9.272 0 00-4.687 8.057v.053l-.04 80.376zm13.095-28.233l31.012-17.912 31.012 17.9v35.812l-31.012 17.901-31.012-17.901v-35.8z"/></svg> Try Our GPT Plugin</h2>
-                <p>Experience the full functionality of our product with the GPT plugin. Get started today!</p>
-                <p><a href="https://chatgpt.com/g/g-XQpeI0D4h-sintes" target="_blank">Learn More About the GPT Plugin</a></p>
-            </div>
-
-            <!-- Waitlist form section -->
-            <div class="waitlist-container">
-                <h2>Join the Waitlist</h2>
-                <p>Sign up to be the first to know when our bot is available!</p>
-                <form action="https://formspree.io/f/xrbznkgv" method="POST">
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                    <br>
-                    <button type="submit">Join Waitlist</button>
-                </form>
-            </div>
+        <!-- Registration section -->
+        <div class="waitlist-container">
+            <h2>Регистрация на семинар</h2>
+            <p>Пожалуйста, заполните форму ниже, чтобы зарегистрироваться на семинар «Чужие маски».</p>
+            <form action="https://formspree.io/f/xrbznkgv" method="POST">
+                <input type="email" name="email" placeholder="Введите ваш email" required>
+                <br>
+                <button type="submit">Зарегистрироваться</button>
+            </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Day Planner Bot. All rights reserved.</p>
+        <p>&copy; 2024 Семинар «Чужие маски». Все права защищены.</p>
     </footer>
 
 </body>
