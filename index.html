@@ -50,6 +50,20 @@
             line-height: 1.8;
         }
 
+        /* Видео секция */
+        .video-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .video-container iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+        }
+
         /* Информация о дате, месте и описании */
         .info {
             margin: 20px 0;
@@ -133,6 +147,11 @@
         <p>📅 Дата и время: 8 октября, 15:20</p>
         <p>📍 Место: Tengri Hall</p>
         <p>🎭 Описание: Уникальный мастер-класс, включающий психологический спектакль, создание персональной маски и обсуждение гармонии с социальными ролями.</p>
+    </div>
+
+    <!-- Вставка YouTube видео -->
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/your_video_id" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <!-- Форма для ввода email -->
