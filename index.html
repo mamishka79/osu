@@ -3,199 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Семинар «Чужие маски»</title>
+    <title>Семинар "Чужие маски"</title>
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background: linear-gradient(120deg, #f8f9fc 50%, #b0e0e6 100%);
-            color: #333;
-            text-align: center;
-            background-image: url('surreal-background.png'); /* Abstract, dreamlike background */
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
         }
-
         header {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 2rem 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transform: skewY(-3deg);
-            position: relative;
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
         }
-
         header h1 {
             margin: 0;
-            font-size: 3rem;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 0px #fff, -3px -3px 0px #4CAF50;
-            position: relative;
+            font-size: 2.5em;
         }
-
         section {
-            padding: 3rem;
-            backdrop-filter: blur(8px);
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
-            max-width: 90%;
-            margin: 2rem auto;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            transform: perspective(600px) rotateX(5deg);
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            transform: skewX(2deg);
+        section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
         }
-
-        .description {
-            font-size: 1.5rem;
-            margin: 1.5rem 0;
-            line-height: 1.8;
-            color: #444;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        section p {
+            font-size: 1.2em;
+            line-height: 1.6;
         }
-
-        .features {
-            margin: 2rem 0;
-            text-align: left;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 2.5rem;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            color: #fff;
-            transform: scale(1.05);
-            backdrop-filter: blur(4px);
+        .info {
+            margin: 20px 0;
         }
-
-        .features h3 {
-            font-size: 2rem;
-            color: #b0e0e6;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+        .info p {
+            font-weight: bold;
         }
-
-        .features p {
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        .features strong {
-            color: #ff6347;
-        }
-
-        .waitlist-container {
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
-            margin: 2rem auto;
-        }
-
-        .waitlist-container h2 {
-            margin-bottom: 1.5rem;
-            color: #ff6347;
-            font-size: 2rem;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .waitlist-container p {
-            font-size: 1.1rem;
-            color: #333;
-        }
-
-        .waitlist-container input[type="email"] {
-            padding: 1rem;
-            width: 85%;
-            font-size: 1.2rem;
-            border: 2px solid #ccc;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .waitlist-container button {
-            padding: 1rem 2.5rem;
-            background-color: #ff6347;
-            color: #fff;
-            border: none;
-            font-size: 1.2rem;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: background-color 0.4s ease;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .waitlist-container button:hover {
-            background-color: #ff4500;
-        }
-
         footer {
-            background-color: rgba(0, 128, 128, 0.8);
-            color: #fff;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            margin: 40px 0 10px;
+            font-size: 0.9em;
+            color: #666;
         }
-
-        footer p {
-            margin: 0;
-            font-size: 1.1rem;
+        .btn-register {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
         }
-
-        @media screen and (max-width: 768px) {
-            .waitlist-container {
-                max-width: 90%;
-            }
+        .btn-register:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Семинар «Чужие маски»</h1>
-    </header>
+<header>
+    <h1>Семинар "Чужие маски"</h1>
+</header>
 
-    <section class="container">
-        <h2>Здравствуйте, дорогие студенты!</h2>
-        <p class="description">
-            Команда «OSU» рада приветствовать вас. Скоро пройдет увлекательный семинар «Чужие маски», где мы будем примерять маски актеров и играть их роли, а также участвовать в интересных играх.
-            Приглашаем всех желающих! Пожалуйста, зарегистрируйтесь для участия в семинаре.
-        </p>
-        
-        <div class="features">
-            <h3>Маски в нашей жизни</h3>
-            <p>📅 <strong>Дата и время:</strong> 8 октября, 15:20</p>
-            <p>📍 <strong>Место:</strong> Tengri Hall</p>
-            <p>🎭 <strong>Описание:</strong> Уникальный мастер-класс, включающий психологический спектакль, создание персональной маски и обсуждение гармонии с социальными ролями.</p>
-        </div>
+<section>
+    <h2>Здравствуйте, дорогие студенты!</h2>
+    <p>
+        Команда «OSU» рада приветствовать вас. Скоро пройдет увлекательный семинар «Чужие маски», где мы будем примерять маски актеров и играть их роли, а также участвовать в интересных играх. Приглашаем всех желающих! Пожалуйста, зарегистрируйтесь для участия в семинаре.
+    </p>
+    
+    <div class="info">
+        <p>📅 Дата и время: 8 октября, 15:20</p>
+        <p>📍 Место: Tengri Hall</p>
+        <p>🎭 Описание: Уникальный мастер-класс, включающий психологический спектакль, создание персональной маски и обсуждение гармонии с социальными ролями.</p>
+    </div>
 
-        <!-- Registration section -->
-        <div class="waitlist-container">
-            <h2>Регистрация на семинар</h2>
-            <p>Пожалуйста, заполните форму ниже, чтобы зарегистрироваться на семинар «Чужие маски».</p>
-            <form action="https://formspree.io/f/xrbznkgv" method="POST">
-                <input type="email" name="email" placeholder="Введите ваш email" required>
-                <br>
-                <button type="submit">Зарегистрироваться</button>
-            </form>
-        </div>
-    </section>
+    <a href="#" class="btn-register">Зарегистрироваться</a>
+</section>
 
-    <footer>
-        <p>&copy; 2024 Семинар «Чужие маски». Все права защищены.</p>
-    </footer>
+<footer>
+    &copy; 2024 OSU. Все права защищены.
+</footer>
 
 </body>
 </html>
