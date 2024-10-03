@@ -14,6 +14,8 @@
             background-size: cover;
             color: #f0f0f0;
         }
+
+        /* Стиль заголовка */
         header {
             background-color: rgba(0, 0, 0, 0.7); /* Прозрачный черный фон */
             color: #d4af37; /* Золотой цвет для театрального ощущения */
@@ -119,6 +121,7 @@
             z-index: 1000;
             display: flex;
             justify-content: space-between;
+            pointer-events: none; /* Отключаем клики */
         }
         .curtain {
             width: 50%;
@@ -140,6 +143,9 @@
         }
         .curtains-open .curtain-right {
             transform: translateX(100%); /* Штора уходит вправо */
+        }
+        .curtains-hidden {
+            display: none; /* Скрыть шторы после анимации */
         }
 
         /* Дополнительные декоративные элементы */
@@ -194,11 +200,8 @@
     <!-- Форма для ввода email -->
     <div class="register-form">
         <form action="https://formspree.io/f/xkgnwgbn" method="POST">
-            <label>
-                Your email:
-                <input type="email" name="email">
-            </label>
-            <button type="submit">Send</button>
+            <input type="email" name="email" placeholder="Введите ваш email" required>
+            <input type="submit" value="Записаться">
         </form>
     </div>
 </section>
@@ -216,6 +219,9 @@
         // Условие для открытия штор при прокрутке вниз
         if (scrollPosition > windowHeight * 0.1) { // Прокрутка больше 10% высоты окна
             curtainElement.classList.add('curtains-open');
+            setTimeout(function() {
+                curtainElement.classList.add('curtains-hidden');
+            }, 1000); // Скрыть шторы через 1 секунду после открытия
         }
     });
 </script>
